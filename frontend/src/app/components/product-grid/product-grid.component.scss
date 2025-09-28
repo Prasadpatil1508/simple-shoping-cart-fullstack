@@ -1,0 +1,52 @@
+.search-container {
+    margin-bottom: 2rem;
+}
+
+.search-input {
+    border-radius: 25px;
+    border: 2px solid #e9ecef;
+    padding: 0.75rem 1.25rem 0.75rem 3rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 500px;
+}
+
+.search-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    z-index: 10;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+
+    .search-input {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}

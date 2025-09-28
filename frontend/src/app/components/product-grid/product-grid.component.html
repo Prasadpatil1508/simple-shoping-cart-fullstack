@@ -1,0 +1,57 @@
+<div class="container-fluid py-4">
+    <!-- Search Bar -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="search-container d-flex justify-content-center">
+                <div class="position-relative" style="width: 100%; max-width: 500px;">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="form-control search-input" placeholder="Search products..."
+                        [(ngModel)]="searchQuery" (input)="onSearchChange($any($event.target).value)">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="row" *ngIf="isLoading">
+        <div class="col-12 text-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-2 text-muted">Loading products...</p>
+        </div>
+    </div>
+
+    <!-- No Products Found -->
+    <div class="row" *ngIf="!isLoading && filteredProducts.length === 0">
+        <div class="col-12 text-center">
+            <div class="py-5">
+                <i class="fas fa-search fa-3x text-muted mb-3"></i>
+                <h4 class="text-muted">No products found</h4>
+                <p class="text-muted">Try adjusting your search terms</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="row" *ngIf="!isLoading && filteredProducts.length > 0">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="h4 mb-0">
+                    <i class="fas fa-box me-2"></i>
+                    Products
+                    <span class="badge bg-primary ms-2">{{ filteredProducts.length }}</span>
+                </h2>
+                <small class="text-muted" *ngIf="searchQuery">
+                    Showing results for "{{ searchQuery }}"
+                </small>
+            </div>
+
+            <div class="product-grid">
+                <app-product-card *ngFor="let product of filteredProducts; trackBy: trackByProductId"
+                    [product]="product" (addToCart)="onAddToCart($event)">
+                </app-product-card>
+            </div>
+        </div>
+    </div>
+</div>

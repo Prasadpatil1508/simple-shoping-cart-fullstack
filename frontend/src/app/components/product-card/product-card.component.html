@@ -1,0 +1,27 @@
+<div class="product-card fade-in">
+    <div class="position-relative">
+        <img [src]="product.imageUrl" [alt]="product.name" class="product-image" loading="lazy">
+        <div class="position-absolute top-0 end-0 p-2">
+            <span class="badge bg-success" *ngIf="isInCart()">
+                <i class="fas fa-check"></i> In Cart
+            </span>
+        </div>
+    </div>
+
+    <div class="product-info">
+        <h5 class="product-title text-truncate-2">{{ product.name }}</h5>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="product-price">${{ product.price | number:'1.2-2' }}</span>
+            <span class="text-muted small" *ngIf="getItemQuantity() > 0">
+                Qty: {{ getItemQuantity() }}
+            </span>
+        </div>
+
+        <div class="d-grid">
+            <button class="btn btn-primary" (click)="onAddToCart()" [disabled]="isInCart()">
+                <i class="fas fa-shopping-cart me-2"></i>
+                {{ isInCart() ? 'Added to Cart' : 'Add to Cart' }}
+            </button>
+        </div>
+    </div>
+</div>
