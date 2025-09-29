@@ -32,12 +32,12 @@ export class ProductService {
             price: 79.99,
             imageUrl: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300&h=300&fit=crop'
         },
-        {
-            id: 6,
-            name: 'Portable Power Bank',
-            price: 39.99,
-            imageUrl: 'https://images.unsplash.com/photo-1609592807905-7b0a0b0b0b0b?w=300&h=300&fit=crop'
-        },
+        // {
+        //     id: 6,
+        //     name: 'Portable Power Bank',
+        //     price: 39.99,
+        //     imageUrl: 'https://images.unsplash.com/photo-1609592807905-7b0a0b0b0b0b?w=300&h=300&fit=crop'
+        // },
         {
             id: 7,
             name: 'Bluetooth Speaker',
